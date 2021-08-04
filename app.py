@@ -43,14 +43,10 @@ def risk_engine():
         "timestamp": str(datetime.now()),
         "fraud_result": {
             "version": fraud_model_version,
-            "build_version": build_version,
-            "score": credit_score,
-            "log_score": np.log(credit_score),
-            "model": model_algorithm,
-            "credit_decision": credit_decision,
-            "credit_decision_notes": credit_decision_notes,
-            "credit_quality": credit_quality,
-            "credit_limit": credit_limit
+            "date_deployed": fraud_model_date_deployed,
+            "score": fraud_checks.get_fraud_score(),
+            "decision": fraud_checks.get_fraud_decision(),
+            "decision_notes": credit_decision_notes
         }
     }
         

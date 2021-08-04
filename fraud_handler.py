@@ -55,16 +55,11 @@ class FraudHandler:
     
     def get_fraud_decision(self):
         score = self.get_fraud_score()
-        result = {}
         
         if score >= 80:
-            result['decision'] = 'DECLINED'
+            return 'DECLINED'
         else:
-            result['decision'] = 'APPROVED'
-            
-        result['fraud_score'] = score
-        
-        return str(result)
+            return 'APPROVED'
         
         
     def fraud_checks(self):
